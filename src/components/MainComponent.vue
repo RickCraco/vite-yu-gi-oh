@@ -4,8 +4,7 @@
         v-for="el in store.cardList"
         :image="el.card_images[0].image_url"
         :name="el.name"
-        :specie="el.species"
-        :state="el.status"
+        :archetipo="el.archetype"
       />
     </div>
   </template>
