@@ -1,5 +1,5 @@
 <script>
-import { store } from "./data/store.js";
+import { store } from "./store.js";
 import axios from "axios";
 import HeaderComponent from "./components/HeaderComponent.vue";
 import MainComponent from "./components/MainComponent.vue";
@@ -16,7 +16,7 @@ export default {
       const url = store.apiUrl;
       axios.get(url).then((response) => {
         console.log(response.data);
-        store.characterList = response.data.data;
+        store.cardList = response.data.data;
       });
       axios.get(url).catch(function (error) {
         if (error.response) {
