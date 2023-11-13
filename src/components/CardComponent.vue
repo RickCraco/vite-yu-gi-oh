@@ -2,7 +2,7 @@
     <div class="card my-card border-0">
         <div><img :src="image" :alt="name" /></div>
         <div class="text-center card-body bg-warning">
-          <h5 class="card-title text-white">{{ name }}</h5>
+          <h5 class="card-title text-white fs-6">{{ name }}</h5>
           <h6 class="card-text">{{ archetipo }}</h6>
         </div>
     </div>
