@@ -1,13 +1,59 @@
-<template>
-  
-</template>
-
 <script>
-  export default {
-    
-  }
+import { store } from "./data/store.js";
+import axios from "axios";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import MainComponent from "./components/MainComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
+export default {
+  name: "App",
+  components: { HeaderComponent, MainComponent, FooterComponent },
+  data() {
+    return {
+      store,
+    };
+  },
+  methods: {
+    getCharacters() {
+      const url = this.store.apiUrl + store.endPoint.characters;
+      axios.get(url).then((response) => {
+        console.log(response.data);
+        store.characterList = response.data.results;
+      });
+      axios.get(url).catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
+    },
+  },
+  created() {
+    this.getCharacters();
+  },
+};
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <header>
+    <HeaderComponent class="text-center" title="Rick and Morty" />
+  </header>
+  <main class="container">
+    <MainComponent />
+  </main>
 
-</style>
+  <FooterComponent />
+</template>
+
+<style scoped></style>
