@@ -13,10 +13,10 @@ export default {
   },
   methods: {
     getCharacters() {
-      const url = this.store.apiUrl + store.endPoint.characters;
+      const url = store.apiUrl;
       axios.get(url).then((response) => {
         console.log(response.data);
-        store.characterList = response.data.results;
+        store.characterList = response.data.data;
       });
       axios.get(url).catch(function (error) {
         if (error.response) {
