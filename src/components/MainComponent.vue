@@ -1,7 +1,7 @@
 <template>
     <div class="row g-3 py-3">
       <CardComponent
-        v-for="(el, index) in store.characterList"
+        v-for="(el, index) in store.cardList"
         :image="el.image"
         :name="el.name"
         :specie="el.species"
@@ -12,7 +12,7 @@
   
   <script>
   import CardComponent from "./CardComponent.vue";
-  import { store } from "../data/store";
+  import { store } from "../store.js";
   export default {
     name: "MainComponent",
     components: {
