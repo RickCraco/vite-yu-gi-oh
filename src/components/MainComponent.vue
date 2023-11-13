@@ -1,7 +1,7 @@
 <template>
     <div class="row g-3 py-3">
       <CardComponent
-        v-for="(el, index) in store.cardList"
+        v-for="el in store.cardList"
         :image="el.image"
         :name="el.name"
         :specie="el.species"
