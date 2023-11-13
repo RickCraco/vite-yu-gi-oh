@@ -18,6 +18,7 @@ export default {
       axios.get(url).then((response) => {
         console.log(response.data.data);
         store.cardList = response.data.data;
+        store.flag = false
       });
       axios.get(url).catch(function (error) {
         if (error.response) {
@@ -46,7 +47,7 @@ export default {
 </script>
 
 <template>
-  <LoaderComponent v-if="store.cardList.length < 10000 " />
+  <LoaderComponent v-if="store.flag" />
   <div v-else>
     <header>
       <HeaderComponent title="Yu-Gi-Oh API" />
