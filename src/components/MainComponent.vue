@@ -2,7 +2,7 @@
     <div class="row g-3 py-3">
       <CardComponent
         v-for="el in store.cardList"
-        :image="el.image"
+        :image="el.card_images[0].image_url"
         :name="el.name"
         :specie="el.species"
         :state="el.status"
