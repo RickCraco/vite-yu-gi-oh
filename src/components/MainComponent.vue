@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-warning">
-        <div class="row g-3 py-3 bg-white p-3">
+    <div class="container">
+        <div class="row g-3 py-3 bg-white p-3 justify-content-between">
             <div>
                 <h3>Found {{ store.cardList.length }} cards</h3>
             </div>
