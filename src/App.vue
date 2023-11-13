@@ -15,7 +15,7 @@ export default {
     getCharacters() {
       const url = store.apiUrl;
       axios.get(url).then((response) => {
-        console.log(response.data);
+        console.log(response.data.data);
         store.cardList = response.data.data;
       });
       axios.get(url).catch(function (error) {
