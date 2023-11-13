@@ -1,5 +1,5 @@
 <template>
-    <h1>Aspetta le tue carte!</h1>
+    <h1 class="text-center">Aspetta le tue carte!</h1>
 </template>
 
 <script>
