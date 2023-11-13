@@ -48,7 +48,7 @@ export default {
   <header>
     <HeaderComponent title="Yu-Gi-Oh API" />
   </header>
-  <main class="container">
+  <main class="bg-warning p-5 mt-4">
     <MainComponent />
   </main>
 
