@@ -1,8 +1,9 @@
 <template>
-    <header class="container">
-      <h1>{{ title }}</h1>
+    <header class="container d-flex align-items-center mt-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Yu-Gi-Oh%21.png" alt="yugi">
+        <h1>{{ title }}</h1>
     </header>
-  </template>
+</template>
   
   <script>
   export default {
@@ -14,5 +15,9 @@
   };
   </script>
   
-  <style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    img{
+        width: 200px;
+    }
+</style>
   
