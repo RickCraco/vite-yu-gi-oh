@@ -1,5 +1,6 @@
 <template>
     <div class="row g-3 py-3">
+        <div><h3>Found {{ store.cardList.length }} cards</h3></div>
       <CardComponent
         v-for="el in store.cardList"
         :image="el.card_images[0].image_url"
