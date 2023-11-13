@@ -46,7 +46,7 @@ export default {
 
 <template>
   <header>
-    <HeaderComponent class="text-center" title="Rick and Morty" />
+    <HeaderComponent class="text-center" title="Yu-Gi-Oh API" />
   </header>
   <main class="container">
     <MainComponent />
