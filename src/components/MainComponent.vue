@@ -1,31 +1,33 @@
 <template>
-    <div class="row g-3 py-3">
-        <div><h3>Found {{ store.cardList.length }} cards</h3></div>
-      <CardComponent
-        v-for="el in store.cardList"
-        :image="el.card_images[0].image_url"
-        :name="el.name"
-        :archetipo="el.archetype"
-      />
+    <div class="bg-warning">
+        <div class="row g-3 py-3 bg-white p-3">
+            <div>
+                <h3>Found {{ store.cardList.length }} cards</h3>
+            </div>
+            <CardComponent v-for="el in store.cardList" 
+                :image="el.card_images[0].image_url" 
+                :name="el.name"
+                :archetipo="el.archetype" />
+        </div>
     </div>
-  </template>
+</template>
   
-  <script>
-  import CardComponent from "./CardComponent.vue";
-  import { store } from "../store.js";
-  export default {
+<script>
+import CardComponent from "./CardComponent.vue";
+import { store } from "../store.js";
+export default {
     name: "MainComponent",
     components: {
-      CardComponent,
+        CardComponent,
     },
     data() {
-      return {
-        store,
-      };
+        return {
+            store,
+        };
     },
     methods: {},
-  };
-  </script>
+};
+</script>
   
-  <style lang="scss" scoped></style>
+<style lang="scss" scoped></style>
   
