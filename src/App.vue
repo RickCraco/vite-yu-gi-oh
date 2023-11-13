@@ -1,11 +1,12 @@
 <script>
+import LoaderComponent from "./components/LoaderComponent.vue";
 import { store } from "./store.js";
 import axios from "axios";
 import HeaderComponent from "./components/HeaderComponent.vue";
 import MainComponent from "./components/MainComponent.vue";
 export default {
   name: "App",
-  components: { HeaderComponent, MainComponent },
+  components: { HeaderComponent, MainComponent, LoaderComponent },
   data() {
     return {
       store,
@@ -45,14 +46,16 @@ export default {
 </script>
 
 <template>
-  <header>
-    <HeaderComponent title="Yu-Gi-Oh API" />
-  </header>
-  <main class="bg-warning p-5 mt-4">
-    <MainComponent />
-  </main>
+  <LoaderComponent v-if="store.cardList.length < 10000 " />
+  <div v-else>
+    <header>
+      <HeaderComponent title="Yu-Gi-Oh API" />
+    </header>
+    <main class="bg-warning p-5 mt-4">
+      <MainComponent />
+    </main>
 
-  <FooterComponent />
+  </div>
 </template>
 
 <style scoped></style>
