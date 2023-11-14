@@ -55,7 +55,7 @@ export default {
       <HeaderComponent title="Yu-Gi-Oh API" />
     </header>
     <main class="bg-warning p-5 mt-4">
-      <SearchComponent @change-archetype="filteredArchetypes()"/>
+      <SearchComponent @change-archetype="filteredArchetypes"/>
       <MainComponent />
     </main>
 
