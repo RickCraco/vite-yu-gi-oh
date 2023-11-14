@@ -5,9 +5,10 @@ import axios from "axios";
 import HeaderComponent from "./components/HeaderComponent.vue";
 import MainComponent from "./components/MainComponent.vue";
 import SearchComponent from "./components/SearchComponent.vue";
+import NameComponent from "./components/NameComponent.vue";
 export default {
   name: "App",
-  components: { HeaderComponent, MainComponent, LoaderComponent, SearchComponent },
+  components: { HeaderComponent, MainComponent, LoaderComponent, SearchComponent, NameComponent },
   data() {
     return {
       store,
@@ -56,6 +57,7 @@ export default {
     </header>
     <main class="bg-warning p-5 mt-4">
       <SearchComponent @change-archetype="filteredArchetypes"/>
+      <NameComponent/>
       <MainComponent />
     </main>
 
