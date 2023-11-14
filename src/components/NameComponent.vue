@@ -7,12 +7,12 @@
 </template>
 
 <script>
-    import { store } from '../store';
+    //import { store } from '../store';
     export default {
         name : 'NameComponent',
         data(){
             return{
-                store,
+                //store,
                 cardName: ''
             }
         }
