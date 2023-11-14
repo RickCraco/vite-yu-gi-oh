@@ -11,12 +11,13 @@ export default {
   data() {
     return {
       store,
+      params: null
     };
   },
   methods: {
     getCharacters() {
       const url = store.apiUrl;
-      axios.get(url).then((response) => {
+      axios.get(url, {params: this.params}).then((response) => {
         console.log(response.data.data);
         store.cardList = response.data.data;
         store.flag = false
@@ -28,6 +29,16 @@ export default {
         console.log(response.data);
         store.archetypes = response.data;
       })
+    },
+    filteredArchetypes(value) {
+      if(value){
+        this.params = {
+          archetype: value
+        }
+      }else{
+        this.params = null
+      }
+      this.getCharacters();
     }
   },
   created() {
@@ -44,7 +55,7 @@ export default {
       <HeaderComponent title="Yu-Gi-Oh API" />
     </header>
     <main class="bg-warning p-5 mt-4">
-      <SearchComponent/>
+      <SearchComponent @change-archetype="filteredArchetypes()"/>
       <MainComponent />
     </main>
 

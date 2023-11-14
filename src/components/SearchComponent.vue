@@ -5,6 +5,7 @@
           class="form-select"
           aria-label="Default select example"
           v-model="filterValue"
+          @change="$emit('changeArchetype', filterValue)"
         >
           <option value="">All cards</option>
           <option
