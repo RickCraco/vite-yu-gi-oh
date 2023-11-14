@@ -12,18 +12,12 @@ export default {
   data() {
     return {
       store,
-      params: {
-        offset: 0,
-        num: null,
-        archetype: null,
-        fname: null,
-      }
+      params: null
     };
   },
   methods: {
     getCharacters() {
       const url = store.apiUrl;
-      this.params.num = store.num;
       axios.get(url, {params: this.params}).then((response) => {
         console.log(response.data.data);
         store.cardList = response.data.data;
@@ -51,7 +45,7 @@ export default {
     filterByName(value){
       if(value){
         this.params = {
-          fname: value
+          fname: value,
         }
       }else{
         this.params = null
@@ -83,7 +77,6 @@ export default {
       <HeaderComponent title="Yu-Gi-Oh API" />
     </header>
     <main class="bg-warning p-5 mt-4">
-      <input type="text" v-model="store.num" @keyup.enter="getCharacters">
       <SearchComponent @change-archetype="filteredArchetypes"/>
       <NameComponent @card-by-name="filterByName"/>
       <MainComponent />
