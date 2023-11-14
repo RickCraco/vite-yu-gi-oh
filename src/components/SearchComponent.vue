@@ -19,7 +19,7 @@
   </template>
   
   <script>
-  import { store } from "../data/store";
+  import { store } from "../store";
   export default {
     name: "SearchComponent",
     data() {
