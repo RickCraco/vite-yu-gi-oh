@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container my-5">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="cardName" @keyup.enter="$emit('cardByName', cardName)">
         </div>
     </div>
 </template>
