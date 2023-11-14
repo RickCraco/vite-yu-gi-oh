@@ -45,7 +45,7 @@ export default {
     filterByName(value){
       if(value){
         this.params = {
-          name: value
+          fname: value
         }
       }else{
         this.params = null
