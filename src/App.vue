@@ -22,6 +22,13 @@ export default {
         store.flag = false
       });
     },
+    getArchetypes() {
+      const url = store.apiUrlArchetypes;
+      axios.get(url).then((response) => {
+        console.log(response.data);
+        store.archetypes = response.data;
+      })
+    }
   },
   created() {
     this.getCharacters();
