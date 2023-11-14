@@ -8,7 +8,7 @@
         >
           <option value="">All cards</option>
           <option
-            v-for="(el, index) in store.cardArchetypes"
+            v-for="(el, index) in store.archetypes"
             :value="el.archetype_name"
           >
             {{ el.archetype_name }}
