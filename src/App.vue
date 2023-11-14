@@ -24,13 +24,14 @@ export default {
         store.flag = false
       });
     },
+    /*
     getArchetypes() {
       const url = store.apiUrlArchetypes;
       axios.get(url).then((response) => {
         console.log(response.data);
         store.archetypes = response.data;
       })
-    },
+    }*/
     filteredArchetypes(value) {
       if(value){
         this.params = {
@@ -40,11 +41,31 @@ export default {
         this.params = null
       }
       this.getCharacters();
+    },
+    filterByName(value){
+      if(value){
+        this.params = {
+          name: value
+        }
+      }else{
+        this.params = null
+      }
+      this.getCharacters();
     }
   },
   created() {
-    this.getCharacters();
-    this.getArchetypes();
+    function getCard(){
+      return axios.get(store.apiUrl);
+    }
+    function getArchetypes(){
+      return axios.get(store.apiUrlArchetypes);
+    }
+
+    Promise.all([getCard(), getArchetypes()]).then(function (response){
+      store.cardList = response[0].data.data;
+      store.archetypes = response[1].data;
+      store.flag = false;
+    })
   },
 };
 </script>
@@ -57,7 +78,7 @@ export default {
     </header>
     <main class="bg-warning p-5 mt-4">
       <SearchComponent @change-archetype="filteredArchetypes"/>
-      <NameComponent/>
+      <NameComponent @card-by-name="filterByName"/>
       <MainComponent />
     </main>
 
